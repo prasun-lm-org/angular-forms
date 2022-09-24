@@ -10,9 +10,11 @@
           id="uname"
           formControlName="uname"
         />
-        <small *ngIf="!myForm.get('uname').valid && myForm.get('uname').touched"
+        <small *ngIf="myForm.get('uname').errors && myForm.get('uname').errors.required && myForm.get('uname').touched"
           >Username is required</small
         >
+        <small *ngIf="myForm.get('uname').errors && !(myForm.get('uname').errors.required) && myForm.get('uname').touched"
+          >Abusive words are not allowed.</small>
       </div>
 
       <div class="form-group">

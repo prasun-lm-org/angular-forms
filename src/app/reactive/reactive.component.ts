@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ValidateUsername } from '../validators/username.validator';
 
 @Component({
   selector: 'app-reactive',
@@ -17,7 +18,7 @@ export class ReactiveComponent implements OnInit {
   ngOnInit(): void {
     this.myForm = new FormGroup(
       {
-        uname: new FormControl('Prasun', Validators.required),
+        uname: new FormControl('Prasun', [Validators.required, ValidateUsername]),
         email: new FormControl(null, [Validators.required, Validators.email]),
         readTerms: new FormControl(false)
       }
