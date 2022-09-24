@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reactive',
@@ -12,7 +12,7 @@ export class ReactiveComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private location:Location, private router: Router) { }
+  constructor(private location:Location, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.myForm = new FormGroup(
@@ -44,7 +44,14 @@ export class ReactiveComponent implements OnInit {
   }
 
   goBackHome(): void{
-    this.router.navigate(['home']);
+    this.router.navigate(['home']); // absolute path
+    //this.router.navigate(['home', 1]); absolute path
+    //this.router.navigate(['home', 1], {relativeTo: this.route});  relative path
+  }
+  
+  goBackHomeByUrl(): void{
+    this.router.navigateByUrl('home'); // absolute path
+    //this.router.navigateByUrl('/home/1'); absolute path
   }
 
 }

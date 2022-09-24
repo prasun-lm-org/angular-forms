@@ -73,5 +73,11 @@
     </form>
   </div>
   <div class="back" (click)="goBack()">Back to Previous Page</div>
+  <div>
+    <a class="backHome" href="home">Redirect to Home Page</a>
+  </div>
+  <!-- <div class="backHome" routerLink="home">Back to Home Page with routerLink</div> relative path --> 
+  <div class="backHome" routerLink="/home">Back to Home Page with routerLink</div> <!-- absolute path -->
   <div class="backHome" (click)="goBackHome()">Back to Home Page</div>
+  <div class="backHome" (click)="goBackHomeByUrl()">Back to Home Page by URL</div>
 </div>
